@@ -62,6 +62,7 @@ ax.plot(timedual, energydual, linewidth=2, c='b', label='Dual',
         marker='o', markerfacecolor='r', markersize=8)
 ax.plot(timeref, energyref, linewidth=2, c='r', label='Refrence',
         marker='o', markerfacecolor='b', markersize=8)
+ax.set_ylim(-10, 10)
 ax.legend(fontsize=16)
 fig.savefig(
     f'../{dir1}_{dir2}_dG_convergence_kcal.png', bbox_inches='tight', dpi=300)
@@ -78,5 +79,6 @@ ax.set_xlabel('Time (ps)', fontsize=24, color='black')
 ax.set_ylabel('$\Delta\Delta$G (kcal/mol)', fontsize=24, color='black')
 ax.plot(timeref, energydiff, linewidth=2, c='b',
         marker='o', markerfacecolor='r', markersize=8)
+ax.set_ylim(-10, 10)
 fig.savefig(
     f'../{dir1}_{dir2}_ddg_convergence_kcal.png', bbox_inches='tight', dpi=300)
