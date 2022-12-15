@@ -1,2 +1,7 @@
 *.DS_Store
 .vscode/
+refa/
+refb/
+copyfiles.sh
+remove_files.sh
+2_convergence_ddG_tworef.py
