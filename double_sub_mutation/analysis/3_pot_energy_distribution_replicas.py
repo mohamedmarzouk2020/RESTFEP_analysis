@@ -16,7 +16,7 @@ mpl.rcParams["font.family"] = "serif"
 if len(sys.argv) == 2:
     dir = str(sys.argv[1])  # the dir required to do analysis for
 else:
-    print(f"please enter the dir name to do the probability analysis for pot energy dist such as dual3 \n Then add the number of replicas such as 96")
+    print(f"please enter the dir name to do the probability analysis for pot energy dist such as dual3 ")
     quit()
 
 
@@ -117,32 +117,8 @@ for i in range(2, 10):
 # Run everything with conditions based on number of steps two by two
 if len(files) == 1:
     # split to obtain only the file name which required for the function to done
-    data1 = pickupdata("dual", "deltae.part0002.xvg")  # files[0].split("/")[4]
+    # files[0].split("/")[4]
+    data1 = pickupdata(f"{dir}", "deltae.part0002.xvg")
     fig1 = plothist(data1)
     fig1.savefig(
         f'{cwd}/../{dir}_pot_energy_distribution_1simulationsteps.png', bbox_inches='tight', dpi=300)
-
-# if len(files) == 2 or len(files) == 3:
-#     # split to obtain only the file name which required for the function to done
-#     data1 = pickupdata(files[0].split("/")[4])
-#     data2 = pickupdata(files[1].split("/")[4])
-#     # to concatenate the data from step 1 and step 2 and get list 2D
-#     alldata12 = [x+y for x, y in zip(data1, data2)]
-#     fig12 = plothist(alldata12)
-#     fig12.savefig(
-#         f'../{dir}_pot_energy_distribution_1_2_simulationsteps.png', bbox_inches='tight', dpi=300)
-
-# elif len(files) == 4 or len(files) == 5:
-#     data1 = pickupdata(files[0].split("/")[4])
-#     data2 = pickupdata(files[1].split("/")[4])
-#     data3 = pickupdata(files[2].split("/")[4])
-#     data4 = pickupdata(files[3].split("/")[4])
-#     alldata12 = [x+y for x, y in zip(data1, data2)]
-#     alldata34 = [x+y for x, y in zip(data3, data4)]
-#     # I want to save figure for each two steps so I used this method to obtain the fig from the function of plot then save after using the function
-#     fig12 = plothist(alldata12)
-#     fig34 = plothist(alldata34)
-#     fig12.savefig(
-#         f'../{dir}_pot_energy_distribution_1_2_simulationsteps.png', bbox_inches='tight', dpi=300)
-#     fig34.savefig(
-#         f'../{dir}_pot_energy_distribution_3_4_simulationsteps.png', bbox_inches='tight', dpi=300)
